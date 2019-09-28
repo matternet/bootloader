@@ -1,7 +1,7 @@
 // bootloader configuration file
 #pragma once
 
-#define BOARD_CONFIG_HW_NAME "com.matternet.battery"
+#define BOARD_CONFIG_HW_NAME "com.matternet.hangar_v2"
 #define BOARD_CONFIG_HW_MAJOR_VER 1
 #define BOARD_CONFIG_HW_MINOR_VER 0
 
