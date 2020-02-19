@@ -410,7 +410,7 @@ static void handle_get_node_info_request(CanardInstance* ins, CanardRxTransfer* 
 
 static void handle_restart_node_request(CanardInstance* ins, CanardRxTransfer* transfer)
 {
-    uint64_t magic;
+    uint64_t magic = 0;  // XXX: initialize to avoid compiler warning below
     canardDecodeScalar(transfer, 0, 40, false, &magic);
     if (restart_cb) {
         restart_cb(get_transfer_info(ins, transfer), magic);
@@ -427,7 +427,7 @@ void uavcan_send_restart_response(struct uavcan_transfer_info_s* transfer_info, 
 
 static void handle_file_beginfirmwareupdate_request(CanardInstance* ins, CanardRxTransfer* transfer)
 {
-    uint8_t source_node_id;
+    uint8_t source_node_id = 0;  // XXX: initialize to avoid compiler warning below
     canardDecodeScalar(transfer, 0, 8, false, &source_node_id);
     uint8_t path_len = transfer->payload_len-1;
     char path[201];
@@ -479,7 +479,7 @@ uint8_t uavcan_send_file_read_request(uint8_t remote_node_id, const uint64_t off
 static void handle_file_read_response(CanardInstance* ins, CanardRxTransfer* transfer)
 {
     UNUSED(ins);
-    int16_t error;
+    int16_t error = 0;  // XXX: initialize to avoid compiler warning below
     uint8_t data[256];
     size_t data_len = transfer->payload_len-2;
     canardDecodeScalar(transfer, 0, 16, true, &error);
