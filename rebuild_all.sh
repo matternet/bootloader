@@ -5,14 +5,14 @@
 
 declare -a ALL_BOARDS=("com.matternet.carriage_2.0"
                        "com.matternet.payload_bay_1.0"
-                        "com.matternet.battery_bay_v1_1.0"
-                        "com.matternet.battery_bay_2.0"
-                        "com.matternet.handover_1.0"
-                        "com.matternet.hangar_v2_1.0"
-                        "com.matternet.rfid_access_1.0"
-                        "com.matternet.ucann_1.0"
-                        "com.matternet.bmu-B_1.0"
-                        "com.matternet.external_led_1.0"
+                       "com.matternet.battery_bay_v1_1.0"
+                       "com.matternet.battery_bay_2.0"
+                       "com.matternet.handover_1.0"
+                       "com.matternet.hangar_v2_1.0"
+                       "com.matternet.rfid_access_1.0"
+                       "com.matternet.ucann_1.0"
+                       "com.matternet.bmu-B_1.0"
+                       "com.matternet.external_led_1.0"
                        )
 
 
@@ -20,9 +20,8 @@ declare -a ALL_BOARDS=("com.matternet.carriage_2.0"
 for i in ${!ALL_BOARDS[@]}; do
     board=${ALL_BOARDS[$i]}
     builddir="build/${board}_bl/bin"
-    echo $builddir
-    rm -f ${builddir}/main.elf
-    rm -f ${builddir}/main.bin
+    echo "rm -f $builddir/main.*"
+    rm -f ${builddir}/main.*
 done
 
 
