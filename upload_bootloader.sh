@@ -2,6 +2,10 @@
 #
 # Upload bootloader firmware to a board. The bootloader binary must already
 # exist.
+#
+# Usage examples:
+#   $ ./upload_bootloader.sh openocd_v2-1.cfg com.matternet.rfid_access_1.0
+#   $ ./upload_bootloader.sh openocd_v2-1.cfg com.matternet.battery_bay_2.0
 
 usage="$(basename "$0") [-h] <cfg-file> <board-name> -- upload bootloader firmware to a board"
 
