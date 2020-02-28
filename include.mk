@@ -36,7 +36,7 @@ ELF := $(BUILD_DIR)/bin/main.elf
 BIN := $(BUILD_DIR)/bin/main.bin
 
 .PHONY: all
-all: $(LIBOPENCM3_DIR) $(BIN)
+all: $(LIBOPENCM3_DIR) $(ELF) $(BIN)
 
 $(BUILD_DIR)/bin/%.elf: $(COMMON_OBJS) $(BUILD_DIR)/canard.o
 	@echo "### BUILDING $@"
@@ -64,11 +64,6 @@ $(BUILD_DIR)/canard.o: $(LIBCANARD_DIR)/canard.c
 $(LIBOPENCM3_DIR):
 	@echo "### BUILDING $@"
 	@$(MAKE) -C $(LIBOPENCM3_DIR) $(LIBOPENCM3_MAKE_ARGS)
-
-.PHONY: upload
-upload: $(BUILD_DIR)/bin/main.elf $(BUILD_DIR)/bin/main.bin
-	@echo "### UPLOADING"
-	@openocd -f openocd.cfg -d2 -c "program $< verify reset exit"
 
 .PHONY: clean
 clean:
