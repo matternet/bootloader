@@ -13,6 +13,7 @@ declare -a ALL_BOARDS=("com.matternet.carriage_2.0"
                        "com.matternet.ucann_1.0"
                        "com.matternet.bmu-B_1.0"
                        "com.matternet.external_led_1.0"
+                       "com.matternet.bmu_4.3"
                        )
 
 
