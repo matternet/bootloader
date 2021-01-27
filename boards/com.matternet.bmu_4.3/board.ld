@@ -2,7 +2,7 @@ MEMORY
 {
     bl (rx) :             ORIGIN = 0x08000000,            LENGTH = 12K
     app (rx) :            ORIGIN = 0x08000000+12K,        LENGTH = 128K-12K-2K
-    params (rx) :         ORIGIN = 0x08000000+126K,        LENGTH = 2K
+    params (rx) :         ORIGIN = 0x08000000+126K,       LENGTH = 2K
     ram (rwx) :           ORIGIN = 0x20000000,            LENGTH = 32K-256
     app_bl_shared (rwx) : ORIGIN = 0x20000000+(32K-256),  LENGTH = 256
 }
@@ -42,7 +42,8 @@ SECTIONS
     } >app_bl_shared
 
     /* C++ Static constructors/destructors, also used for __attribute__
-        * ((constructor)) and the likes */
+     * ((constructor)) and the likes
+     */
     .preinit_array : {
         . = ALIGN(4);
         __preinit_array_start = .;
@@ -65,9 +66,9 @@ SECTIONS
     } >PROGRAM_REGION
 
     /*
-        * Another section used by C++ stuff, appears when using newlib with
-        * 64bit (long long) printf support
-        */
+     * Another section used by C++ stuff, appears when using newlib with
+     * 64bit (long long) printf support
+     */
     .ARM.extab : {
         *(.ARM.extab*)
     } >PROGRAM_REGION
@@ -96,9 +97,9 @@ SECTIONS
     } >ram
 
     /*
-        * The .eh_frame section appears to be used for C++ exception handling.
-        * You may need to fix this if you're using C++.
-        */
+     * The .eh_frame section appears to be used for C++ exception handling.
+     * You may need to fix this if you're using C++.
+     */
     /DISCARD/ : { *(.eh_frame) }
 
     . = ALIGN(4);
