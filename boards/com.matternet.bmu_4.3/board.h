@@ -1,7 +1,7 @@
 // bootloader configuration file
 #pragma once
 
-#define BOARD_CONFIG_HW_NAME "com.matternet.bmu"
+#define BOARD_CONFIG_HW_NAME "com.matternet.bmu_4.3"
 #define BOARD_CONFIG_HW_MAJOR_VER 4
 #define BOARD_CONFIG_HW_MINOR_VER 3
 
