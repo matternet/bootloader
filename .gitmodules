@@ -1,6 +1,6 @@
 [submodule "modules/libopencm3"]
 	path = modules/libopencm3
-	url = git@github.com:OpenMotorDrive/libopencm3.git
+	url = git@github.com:matternet/libopencm3.git
 [submodule "modules/libcanard"]
 	path = modules/libcanard
-	url = git@github.com:OpenMotorDrive/libcanard.git
+	url = git@github.com:matternet/libcanard.git
